@@ -10,7 +10,7 @@ public class E2EController {
 
   @PostMapping("/e2e")
   public String greeting(Name name, Model model) {
-    model.addAttribute("result", name.getInput() + "2020");
+    model.addAttribute("result", name.getInput() == "" ? "empty" : name.getInput() + "2020");
     return "e2e";
   }
 
