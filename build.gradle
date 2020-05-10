@@ -3,6 +3,10 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
+bootRun {
+	sourceResources sourceSets.main
+}
+
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -31,8 +35,14 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+    //for E2E test
+	compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+	compile group: 'com.codeborne', name: 'selenide', version: '5.11.1'
+
+
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
